@@ -1,0 +1,8 @@
+fastapi==0.112.2
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pillow==10.4.0
+numpy==1.26.4
+joblib==1.4.2
+# Remove torch if your model is NOT a PyTorch model
+torch==2.3.1
