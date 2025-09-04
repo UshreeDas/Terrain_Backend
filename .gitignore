@@ -2,11 +2,6 @@ venv/
 .venv/
 __pycache__/
 *.py[cod]
-.env
-.env.*
 .vscode/
 .idea/
-models/*.pkl
-models/*.pt
-models/*.pth
 *.zip
