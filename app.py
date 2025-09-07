@@ -26,13 +26,9 @@ except Exception:
 APP_VERSION = "1.0.0"
 
 app = Flask(__name__)
-# --- CORS (configurable via CORS_ORIGINS env var) ---
-CORS_ORIGINS = os.getenv('CORS_ORIGINS', '*')  # e.g., 'https://yourdomain.com,https://app.example.com'
-if CORS_ORIGINS.strip() == '*':
-    CORS(app, resources={r'/*': {'origins': '*'}}, supports_credentials=False)
-else:
-    _origins = [o.strip() for o in CORS_ORIGINS.split(',') if o.strip()]
-    CORS(app, resources={r'/*': {'origins': _origins}}, supports_credentials=True)
+
+# Enable CORS for all routes and origins.
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 COORDS_PKL = os.getenv("COORDS_PKL", "model/coordinates_data.pkl")
 GEO_PKL    = os.getenv("GEO_PKL",    "model/geological_data.pkl")
@@ -177,7 +173,7 @@ def predict():
     return jsonify(resp)
 
 
-@app.get("/terrain.png")
+@app.get("/terrain")
 def terrain_png():
     try:
         lat = float(request.args.get("lat"))
