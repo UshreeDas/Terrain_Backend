@@ -199,4 +199,4 @@ def terrain_png():
 
 if __name__ == "__main__":
     load_data()
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 8080)), debug=True)
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 6000)), debug=True)
